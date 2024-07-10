@@ -1,0 +1,36 @@
+name: CI
+
+# Controls when the workflow will run
+
+on:
+  # Trigger the workflow on push or pull
+
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to trigger this workflow manually
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or parallely
+jobs:
+  # this workflow contains a single job called as 'build'
+  build-and-release:
+    # The type of runner the job will run on
+    runs-on: ubuntu-latest
+
+    # steps shows a sequence of task which will be run as a part of job
+    steps:
+      - uses: actions/checkout@v3
+
+      # run a single command using runner
+      - name: Run a single line scipt
+        run: echo "Hello, Ayush!"
+
+      - name: Run a multi-line scipt
+        run: |
+          echo "Another task on Build job"
+          echo "Running a multi-line task"
+
+    

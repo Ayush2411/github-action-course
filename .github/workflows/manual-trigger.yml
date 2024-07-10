@@ -1,0 +1,23 @@
+name: manual-input-workflow
+
+# workflow runs when manually triggered
+on:
+  workflow_dispatch:
+  # inputs that workflow accepts
+    inputs:
+      name:
+        # Friendly text
+        description: 'Person to greet'
+        # Defualt value if nothing is provided
+        default: 'World'
+        # Input has to provided for the workflow to run
+        required: true
+
+jobs:
+  # This statement contains a single job called "greet"
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send greetings
+        run: echo "Hello ${{ github.event.inputs.name }}"
