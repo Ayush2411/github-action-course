@@ -2,7 +2,7 @@ name: manual-input-workflow
 
 # workflow runs when manually triggered
 on:
-  workflow-dispatch:
+  workflow_dispatch:
   # inputs that workflow accepts
     inputs:
       name:
